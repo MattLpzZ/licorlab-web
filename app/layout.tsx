@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Poppins, Montserrat } from 'next/font/google'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
 import MobileNav from '@/components/layout/MobileNav'
@@ -17,6 +17,12 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  themeColor: '#e71f46',
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   title: {
