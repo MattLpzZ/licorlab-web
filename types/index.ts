@@ -1,11 +1,15 @@
 export type CategorySlug =
   | 'rones'
-  | 'vodka'
   | 'vinos'
-  | 'tequila'
-  | 'brandies'
-  | 'gin'
-  | 'horario'
+  | 'whisky'
+  | 'cervezas'
+  | 'espumantes'
+  | 'licores'
+  | 'cocteles-listos'
+  | 'mamajuana'
+  | 'vermut-y-aperitivos'
+  | 'bebidas-sin-alcohol'
+  | 'tequila-y-mezcal'
   | 'bundles'
 
 export interface Product {
@@ -62,6 +66,7 @@ export interface OrderPayload {
   customer_email: string
   delivery_address: string
   delivery_method: 'delivery' | 'pickup'
+  payment_method: 'card' | 'transfer' | 'cash'
   notes?: string
   items: {
     product_id: string

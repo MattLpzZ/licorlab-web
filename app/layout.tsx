@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Poppins, Montserrat } from 'next/font/google'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
 import MobileNav from '@/components/layout/MobileNav'
+import Toast from '@/components/ui/Toast'
+import AgeGate from '@/components/ui/AgeGate'
 import './globals.css'
 
 const poppins = Poppins({
@@ -58,14 +60,61 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://licorlab.com' },
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'LicorLab',
+  url: 'https://licorlab.com',
+  logo: 'https://licorlab.com/icon.svg',
+  description:
+    'Tienda online de licores premium con entrega express en Puerto Plata, República Dominicana.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Puerto Plata',
+    addressCountry: 'DO',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    availableLanguage: 'Spanish',
+  },
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'LicorLab',
+  url: 'https://licorlab.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://licorlab.com/catalog?search={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${poppins.variable} ${montserrat.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+      </head>
       {/* pb-16 leaves room for the fixed mobile bottom nav */}
       <body className="pb-16 md:pb-0">
         {children}
         <WhatsAppButton />
         <MobileNav />
+        <Toast />
+        <AgeGate />
       </body>
     </html>
   )

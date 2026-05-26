@@ -6,12 +6,13 @@ import { cn } from '@/lib/cn'
 const CATS = [
   { label: 'Todas', value: '' },
   { label: 'Rones', value: 'rones' },
-  { label: 'Vodka', value: 'vodka' },
   { label: 'Vinos', value: 'vinos' },
-  { label: 'Tequila', value: 'tequila' },
-  { label: 'Brandies', value: 'brandies' },
-  { label: 'Gin', value: 'gin' },
-  { label: 'Bundles', value: 'bundles' },
+  { label: 'Whisky', value: 'whisky' },
+  { label: 'Cervezas', value: 'cervezas' },
+  { label: 'Espumantes', value: 'espumantes' },
+  { label: 'Licores', value: 'licores' },
+  { label: 'Sin Alcohol', value: 'bebidas-sin-alcohol' },
+  { label: 'Cocteles', value: 'cocteles-listos' },
 ]
 
 export default function MobileCategoryBar() {

@@ -55,9 +55,9 @@ export default function ProductCarousel({ title, products, viewAllHref }: Produc
 
         {/* Carousel */}
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-stretch">
             {products.map((product) => (
-              <div key={product.id} className="w-56 md:w-64 flex-shrink-0">
+              <div key={product.id} className="w-56 md:w-64 flex-shrink-0 flex flex-col">
                 <ProductCard product={product} />
               </div>
             ))}

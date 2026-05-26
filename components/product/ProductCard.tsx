@@ -3,8 +3,11 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Heart } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import { useCartStore } from '@/store/cartStore'
+import { useWishlistStore } from '@/store/wishlistStore'
+import { useToastStore } from '@/store/toastStore'
 import type { Product } from '@/types'
 
 interface ProductCardProps {
@@ -14,13 +17,27 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, className }: ProductCardProps) {
   const { addItem } = useCartStore()
+  const { toggle, has } = useWishlistStore()
+  const { add: addToast } = useToastStore()
   const [added, setAdded] = useState(false)
+
+  const isWishlisted = has(product.id)
 
   function handleAdd() {
     if (!product.in_stock || added) return
     addItem(product)
     setAdded(true)
+    addToast(`${product.name} agregado al carrito`)
     setTimeout(() => setAdded(false), 1500)
+  }
+
+  function handleWishlist(e: React.MouseEvent) {
+    e.preventDefault()
+    toggle(product)
+    addToast(
+      isWishlisted ? 'Eliminado de favoritos' : 'Guardado en favoritos',
+      isWishlisted ? 'info' : 'success'
+    )
   }
 
   const hasSale = !!product.compare_at_price && product.compare_at_price > product.price
@@ -31,7 +48,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
   return (
     <article
       className={cn(
-        'bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col',
+        'bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full',
         className
       )}
     >
@@ -61,11 +78,30 @@ export default function ProductCard({ product, className }: ProductCardProps) {
             </span>
           )}
         </div>
+
+        {/* Premium badge */}
         {product.in_stock && product.is_premium && (
-          <span className="absolute top-3 right-3 bg-text-1 text-white text-[10px] font-ui font-bold uppercase rounded-full px-2.5 py-1">
+          <span className="absolute top-3 right-10 bg-text-1 text-white text-[10px] font-ui font-bold uppercase rounded-full px-2.5 py-1">
             Premium
           </span>
         )}
+
+        {/* Wishlist button */}
+        <button
+          onClick={handleWishlist}
+          aria-label={isWishlisted ? 'Quitar de favoritos' : 'Guardar en favoritos'}
+          className={cn(
+            'absolute top-2.5 right-2.5 p-1.5 rounded-full transition-all',
+            isWishlisted
+              ? 'text-red-500 bg-white shadow-sm'
+              : 'text-text-3 bg-white/0 group-hover:bg-white/90 group-hover:shadow-sm'
+          )}
+        >
+          <Heart
+            size={16}
+            className={cn('transition-all', isWishlisted && 'fill-red-500')}
+          />
+        </button>
       </Link>
 
       {/* Info */}

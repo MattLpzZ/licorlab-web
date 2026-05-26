@@ -5,7 +5,7 @@ import CartDrawer from '@/components/layout/CartDrawer'
 import Footer from '@/components/layout/Footer'
 import HeroBanner from '@/components/home/HeroBanner'
 import PromoBanner from '@/components/home/PromoBanner'
-import WaysToSave from '@/components/home/WaysToSave'
+import EditorialBanners from '@/components/home/EditorialBanners'
 import BundleBanner from '@/components/home/BundleBanner'
 import TrendingCategories from '@/components/home/TrendingCategories'
 import ShopByPrice from '@/components/home/ShopByPrice'
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
 }
 
 export default async function HomePage() {
-  const [featured, categories, bundles, rones, vinos, tequilas, ofertas] = await Promise.all([
+  const [featured, categories, bundles, rones, vinos, whisky, ofertas] = await Promise.all([
     getFeaturedProducts(),
     getCategories(),
     getBundles(),
     getProductsByCategory('rones'),
     getProductsByCategory('vinos'),
-    getProductsByCategory('tequila'),
+    getProductsByCategory('whisky'),
     getProductsByPriceRange(1000),
   ])
 
@@ -55,8 +55,8 @@ export default async function HomePage() {
       {/* Ofertas destacadas */}
       <FeaturedDealsSpotlight products={featured} />
 
-      {/* Formas de ahorrar */}
-      <WaysToSave />
+      {/* Banners editoriales */}
+      <EditorialBanners />
 
       {/* Categorías */}
       <TrendingCategories categories={categories} />
@@ -90,9 +90,9 @@ export default async function HomePage() {
           viewAllHref="/catalog?category=vinos"
         />
         <ProductCarousel
-          title="Tequilas Premium"
-          products={tequilas}
-          viewAllHref="/catalog?category=tequila"
+          title="Whiskies del Mundo"
+          products={whisky}
+          viewAllHref="/catalog?category=whisky"
         />
         <ProductCarousel
           title="Ofertas Bajo RD$1,000"

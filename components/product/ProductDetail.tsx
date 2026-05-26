@@ -1,8 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { Heart } from 'lucide-react'
+import { cn } from '@/lib/cn'
 import { useCartStore } from '@/store/cartStore'
+import { useWishlistStore } from '@/store/wishlistStore'
+import { useRecentlyViewedStore } from '@/store/recentlyViewedStore'
+import { useToastStore } from '@/store/toastStore'
 import type { Product } from '@/types'
 
 interface ProductDetailProps {
@@ -13,6 +18,16 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
   const { addItem } = useCartStore()
+  const { toggle, has } = useWishlistStore()
+  const { add: trackView } = useRecentlyViewedStore()
+  const { add: addToast } = useToastStore()
+
+  const isWishlisted = has(product.id)
+
+  // Track recently viewed on mount
+  useEffect(() => {
+    trackView(product)
+  }, [product, trackView])
 
   const hasSale =
     !!product.compare_at_price && product.compare_at_price > product.price
@@ -29,7 +44,16 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     if (!product.in_stock || added) return
     addItem(product, quantity)
     setAdded(true)
+    addToast(`${product.name} agregado al carrito`)
     setTimeout(() => setAdded(false), 2000)
+  }
+
+  function handleWishlist() {
+    toggle(product)
+    addToast(
+      isWishlisted ? 'Eliminado de favoritos' : 'Guardado en favoritos',
+      isWishlisted ? 'info' : 'success'
+    )
   }
 
   const specs = [
@@ -132,18 +156,33 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </div>
           </div>
 
-          {/* Add to cart */}
-          <button
-            onClick={handleAddToCart}
-            disabled={!product.in_stock || added}
-            className="bg-accent hover:bg-accent-light text-primary font-body font-medium py-4 px-8 transition-colors rounded-sm disabled:opacity-60 disabled:cursor-not-allowed w-full"
-          >
-            {!product.in_stock
-              ? 'Agotado'
-              : added
-              ? '✓ Añadido al carrito'
-              : 'Añadir al carrito'}
-          </button>
+          {/* Add to cart + wishlist */}
+          <div className="flex gap-3">
+            <button
+              onClick={handleAddToCart}
+              disabled={!product.in_stock || added}
+              className="flex-1 bg-accent hover:bg-accent-light text-primary font-body font-medium py-4 px-8 transition-colors rounded-sm disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {!product.in_stock
+                ? 'Agotado'
+                : added
+                ? '✓ Añadido al carrito'
+                : 'Añadir al carrito'}
+            </button>
+
+            <button
+              onClick={handleWishlist}
+              aria-label={isWishlisted ? 'Quitar de favoritos' : 'Guardar en favoritos'}
+              className={cn(
+                'p-4 border rounded-sm transition-colors',
+                isWishlisted
+                  ? 'border-red-300 text-red-500 bg-red-50'
+                  : 'border-border text-text-2 hover:border-text-2'
+              )}
+            >
+              <Heart size={20} className={cn(isWishlisted && 'fill-red-500')} />
+            </button>
+          </div>
         </div>
       </div>
     </section>

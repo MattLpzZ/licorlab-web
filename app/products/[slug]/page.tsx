@@ -38,8 +38,31 @@ export default async function ProductPage({ params }: PageProps) {
 
   const related = await getRelatedProducts(product, 4)
 
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    image: product.image_url,
+    description: product.short_description ?? product.description,
+    brand: { '@type': 'Brand', name: product.brand },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'DOP',
+      price: product.price,
+      availability: product.in_stock
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/OutOfStock',
+      url: `https://licorlab.com/products/${product.slug}`,
+      seller: { '@type': 'Organization', name: 'LicorLab' },
+    },
+  }
+
   return (
     <main className="min-h-screen bg-primary font-body">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <Navbar />
       <CartDrawer />
 
