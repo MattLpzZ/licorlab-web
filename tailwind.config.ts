@@ -21,12 +21,19 @@ const config: Config = {
       },
       fontFamily: {
         heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
-        body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        ui: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        site: '1200px',
       },
       borderRadius: {
-        DEFAULT: '2px',
-        sm: '2px',
-        md: '4px',
+        DEFAULT: '4px',
+        sm: '4px',
+        md: '8px',
+        lg: '10px',
+        xl: '14px',
+        '2xl': '18px',
       },
     },
   },

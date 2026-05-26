@@ -26,7 +26,7 @@ export default function HeroBanner({ products }: HeroBannerProps) {
         </div>
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 md:py-24">
+      <div className="relative z-10 max-w-site mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
           {/* Left: brand statement */}

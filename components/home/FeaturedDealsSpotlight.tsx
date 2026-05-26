@@ -13,7 +13,7 @@ export default function FeaturedDealsSpotlight({ products }: FeaturedDealsSpotli
 
   return (
     <section className="py-14 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-site mx-auto px-4">
         <AnimateIn className="flex items-end justify-between mb-10">
           <div>
             <p className="text-text-3 text-[11px] uppercase tracking-[0.25em] font-body mb-1">Esta semana</p>

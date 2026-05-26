@@ -11,7 +11,7 @@ const BLOCKS = [
 export default function ShopByPrice() {
   return (
     <section className="py-20 bg-surface">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-site mx-auto px-4">
         <AnimateIn className="text-center mb-14">
           <p className="text-accent text-xs uppercase tracking-[0.2em] font-body mb-2">Tu presupuesto</p>
           <h2 className="font-heading text-4xl md:text-5xl text-text-1">Compra por precio</h2>

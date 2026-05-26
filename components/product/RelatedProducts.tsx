@@ -10,7 +10,7 @@ export default function RelatedProducts({ products }: RelatedProductsProps) {
 
   return (
     <section className="py-16 border-t border-border">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-site mx-auto px-4">
         <h2 className="font-heading text-3xl text-text-1 mb-8">
           También te puede interesar
         </h2>

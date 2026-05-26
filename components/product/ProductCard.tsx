@@ -29,86 +29,91 @@ export default function ProductCard({ product, className }: ProductCardProps) {
     : 0
 
   return (
-    <article className={cn('bg-white group flex flex-col border border-border hover:border-text-3 transition-colors', className)}>
+    <article
+      className={cn(
+        'bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col',
+        className
+      )}
+    >
       {/* Image */}
-      <Link href={`/products/${product.slug}`} className="relative block bg-surface-2 overflow-hidden shrink-0">
-        <div className="relative h-52 md:h-60 flex items-center justify-center p-4">
+      <Link href={`/products/${product.slug}`} className="relative block bg-surface-2 shrink-0">
+        <div className="h-56 flex items-center justify-center p-6">
           <Image
             src={product.image_url}
             alt={product.name}
-            width={200}
-            height={240}
+            width={180}
+            height={220}
             className="max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             unoptimized
           />
         </div>
 
         {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-1">
+        <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {!product.in_stock && (
-            <span className="bg-text-2 text-white text-[10px] font-bold uppercase px-2 py-0.5">
+            <span className="bg-text-2 text-white text-[10px] font-ui font-bold uppercase rounded-full px-2.5 py-1">
               Agotado
             </span>
           )}
           {product.in_stock && hasSale && (
-            <span className="bg-red-600 text-white text-[10px] font-bold uppercase px-2 py-0.5">
+            <span className="bg-red-600 text-white text-[10px] font-ui font-bold uppercase rounded-full px-2.5 py-1">
               -{discount}%
             </span>
           )}
-          {product.in_stock && product.is_premium && !hasSale && (
-            <span className="bg-text-1 text-white text-[10px] font-bold uppercase px-2 py-0.5">
-              Premium
-            </span>
-          )}
         </div>
+        {product.in_stock && product.is_premium && (
+          <span className="absolute top-3 right-3 bg-text-1 text-white text-[10px] font-ui font-bold uppercase rounded-full px-2.5 py-1">
+            Premium
+          </span>
+        )}
       </Link>
 
       {/* Info */}
-      <div className="flex flex-col flex-1 p-3 gap-2">
-        <Link href={`/products/${product.slug}`} className="flex-1">
-          <p className="text-text-3 text-[11px] uppercase tracking-wider mb-0.5">{product.brand}</p>
-          <h3 className="text-text-1 font-semibold text-sm leading-snug hover:text-accent transition-colors line-clamp-2">
+      <div className="p-4 flex flex-col flex-1 gap-1">
+        <p className="text-text-3 text-[11px] font-ui uppercase tracking-wider">{product.brand}</p>
+        <Link href={`/products/${product.slug}`}>
+          <h3 className="text-text-1 font-ui font-semibold text-[14px] leading-snug line-clamp-2 hover:text-accent transition-colors mt-0.5">
             {product.name}
           </h3>
-          {(product.volume_ml || product.alcohol_pct) && (
-            <p className="text-text-3 text-xs mt-0.5">
-              {[
-                product.volume_ml ? `${product.volume_ml}ml` : null,
-                product.alcohol_pct ? `${product.alcohol_pct}%` : null,
-              ]
-                .filter(Boolean)
-                .join(' · ')}
-            </p>
-          )}
         </Link>
+        {(product.volume_ml || product.alcohol_pct) && (
+          <p className="text-text-3 text-xs font-ui">
+            {[
+              product.volume_ml ? `${product.volume_ml}ml` : null,
+              product.alcohol_pct ? `${product.alcohol_pct}%` : null,
+            ]
+              .filter(Boolean)
+              .join(' · ')}
+          </p>
+        )}
 
-        {/* Price */}
-        <div className="flex items-baseline gap-2">
-          <span className="text-text-1 font-bold text-xl leading-none">
-            RD${product.price.toLocaleString('es-DO')}
-          </span>
-          {hasSale && (
-            <span className="text-text-3 text-sm line-through">
-              RD${product.compare_at_price!.toLocaleString('es-DO')}
+        <div className="mt-auto pt-3">
+          <div className="flex items-baseline gap-2 mb-3">
+            <span className="text-accent font-ui font-bold text-2xl leading-none">
+              RD${product.price.toLocaleString('es-DO')}
             </span>
-          )}
-        </div>
+            {hasSale && (
+              <span className="text-text-3 text-sm font-ui line-through">
+                RD${product.compare_at_price!.toLocaleString('es-DO')}
+              </span>
+            )}
+          </div>
 
-        {/* CTA */}
-        <button
-          onClick={handleAdd}
-          disabled={!product.in_stock || added}
-          className={cn(
-            'w-full py-2.5 text-sm font-bold transition-colors',
-            !product.in_stock
-              ? 'bg-surface-2 text-text-3 cursor-not-allowed'
-              : added
-              ? 'bg-accent text-text-1'
-              : 'bg-text-1 text-white hover:bg-text-2 active:scale-[0.98]'
-          )}
-        >
-          {!product.in_stock ? 'Agotado' : added ? '✓ Agregado' : 'Agregar al carrito'}
-        </button>
+          <button
+            onClick={handleAdd}
+            disabled={!product.in_stock || added}
+            className={cn(
+              'w-full py-3 text-sm font-ui font-semibold rounded-lg transition-all duration-200 active:scale-[0.98]',
+              !product.in_stock
+                ? 'bg-surface-2 text-text-3 cursor-not-allowed'
+                : added
+                ? 'bg-green-600 text-white'
+                : 'bg-text-1 text-white hover:bg-[#333333]'
+            )}
+          >
+            {!product.in_stock ? 'Agotado' : added ? '✓ Agregado' : 'Agregar al carrito'}
+          </button>
+        </div>
       </div>
     </article>
   )

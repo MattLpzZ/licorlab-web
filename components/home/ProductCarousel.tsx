@@ -23,7 +23,7 @@ export default function ProductCarousel({ title, products, viewAllHref }: Produc
 
   return (
     <section className="py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-site mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-heading text-3xl text-text-1">{title}</h2>

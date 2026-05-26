@@ -40,7 +40,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     .join(' · ')
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-site mx-auto px-4 py-12">
       <div className="flex flex-col md:flex-row gap-12">
         {/* Image */}
         <div className="md:w-1/2 flex-shrink-0">

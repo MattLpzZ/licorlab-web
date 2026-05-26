@@ -12,7 +12,7 @@ export default function BundleBanner({ bundles }: BundleBannerProps) {
 
   return (
     <section className="bg-surface py-20 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-site mx-auto">
         {/* Header */}
         <AnimateIn className="mb-10">
           <p className="text-accent text-xs uppercase tracking-[0.2em] font-body mb-2">Ahorra más</p>

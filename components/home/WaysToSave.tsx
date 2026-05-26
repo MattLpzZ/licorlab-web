@@ -30,7 +30,7 @@ const TILES = [
 export default function WaysToSave() {
   return (
     <section className="py-16 px-4 bg-primary">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-site mx-auto">
         <AnimateIn className="mb-8">
           <p className="text-accent text-xs uppercase tracking-[0.2em] font-body mb-2">Aprovechar</p>
           <h2 className="font-heading text-4xl md:text-5xl text-text-1">Formas de ahorrar</h2>

@@ -45,7 +45,7 @@ export default function PromoBanner({
 }: PromoBannerProps) {
   return (
     <section className={`${bg[variant]} py-9 md:py-12`}>
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-site mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           {eyebrow && (
             <p className={`text-[11px] font-body uppercase tracking-[0.25em] mb-2 ${eyebrowColor[variant]}`}>

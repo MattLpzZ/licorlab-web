@@ -12,7 +12,7 @@ export default function TrendingCategories({ categories }: TrendingCategoriesPro
 
   return (
     <section className="py-16 bg-primary">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-site mx-auto px-4">
         <AnimateIn className="flex items-end justify-between mb-10">
           <div>
             <p className="text-accent text-xs uppercase tracking-[0.2em] font-body mb-2">Explorar</p>

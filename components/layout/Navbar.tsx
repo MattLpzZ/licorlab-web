@@ -73,23 +73,22 @@ export default function Navbar() {
             />
           </form>
 
-          {/* Fulfillment pills — desktop */}
-          <div className="hidden md:flex items-stretch gap-1 shrink-0 h-9">
-            <Link
-              href="#"
-              className="flex flex-col items-center justify-center px-3 border border-border hover:border-accent/40 transition-colors min-w-[88px]"
-            >
-              <Truck size={12} className="text-text-3 mb-0.5" />
-              <span className="text-[10px] font-body text-text-3 leading-none">Envío Express</span>
-              <span className="text-[10px] font-body text-accent font-medium leading-none mt-0.5">~30 min</span>
+          {/* Fulfillment — desktop, texto limpio */}
+          <div className="hidden md:flex items-center gap-5 shrink-0">
+            <Link href="#" className="flex items-center gap-2 text-text-2 hover:text-text-1 transition-colors group">
+              <Truck size={15} className="text-accent group-hover:text-text-1 transition-colors" />
+              <div className="flex flex-col leading-none">
+                <span className="text-[11px] font-ui font-semibold text-text-1">Envío Express</span>
+                <span className="text-[10px] font-ui text-text-3">~30 minutos</span>
+              </div>
             </Link>
-            <Link
-              href="#"
-              className="flex flex-col items-center justify-center px-3 border border-accent/50 bg-accent/10 hover:bg-accent/15 transition-colors min-w-[88px]"
-            >
-              <Store size={12} className="text-accent mb-0.5" />
-              <span className="text-[10px] font-body text-text-2 leading-none">Pasar a Retirar</span>
-              <span className="text-[10px] font-body text-accent font-medium leading-none mt-0.5">Disponible</span>
+            <div className="w-px h-7 bg-border" />
+            <Link href="#" className="flex items-center gap-2 text-text-2 hover:text-text-1 transition-colors group">
+              <Store size={15} className="text-accent group-hover:text-text-1 transition-colors" />
+              <div className="flex flex-col leading-none">
+                <span className="text-[11px] font-ui font-semibold text-text-1">Pasar a Retirar</span>
+                <span className="text-[10px] font-ui text-text-3">Disponible ahora</span>
+              </div>
             </Link>
           </div>
 
