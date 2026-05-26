@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "rones",
+    "name": "Rones",
+    "description": "La mejor selección de rones dominicanos e importados",
+    "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 8
+  },
+  {
+    "slug": "vodka",
+    "name": "Vodka",
+    "description": "Desde Smirnoff hasta Grey Goose",
+    "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 6
+  },
+  {
+    "slug": "vinos",
+    "name": "Vinos",
+    "description": "Tintos, blancos y espumantes del mundo",
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 7
+  },
+  {
+    "slug": "tequila",
+    "name": "Tequila",
+    "description": "100% agave, de Jalisco a tu mesa",
+    "image_url": "https://images.unsplash.com/photo-1547595628-c61a32f82ef4?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 5
+  },
+  {
+    "slug": "brandies",
+    "name": "Brandies",
+    "description": "Cognacs y brandies de clase mundial",
+    "image_url": "https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 4
+  },
+  {
+    "slug": "gin",
+    "name": "Gin",
+    "description": "London Dry y gin de autor",
+    "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 4
+  },
+  {
+    "slug": "horario",
+    "name": "Horario",
+    "description": "Aperitivos y licores para cada momento",
+    "image_url": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 3
+  },
+  {
+    "slug": "bundles",
+    "name": "Bundles",
+    "description": "Combos seleccionados con descuento",
+    "image_url": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=300&h=400&q=80",
+    "product_count": 3
+  }
+]

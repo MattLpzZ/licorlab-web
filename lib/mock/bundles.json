@@ -1,0 +1,46 @@
+[
+  {
+    "id": "b1",
+    "slug": "pack-fiesta-ron",
+    "name": "Pack Fiesta Ron",
+    "description": "2 Brugal Añejo + Coca-Cola + hielo. Todo para la noche perfecta.",
+    "image_url": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=400&h=300&q=80",
+    "original_price": 2450,
+    "bundle_price": 2200,
+    "savings_pct": 10,
+    "products": [
+      { "id": "1", "name": "Brugal Añejo", "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=80&h=120&q=80" },
+      { "id": "1", "name": "Brugal Añejo x2", "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=80&h=120&q=80" }
+    ]
+  },
+  {
+    "id": "b2",
+    "slug": "cata-vinos-premium",
+    "name": "Cata de Vinos Premium",
+    "description": "3 vinos curados: 1 tinto, 1 blanco y 1 espumante. Experiencia completa.",
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=300&q=80",
+    "original_price": 2235,
+    "bundle_price": 1900,
+    "savings_pct": 15,
+    "products": [
+      { "id": "15", "name": "Casillero Cabernet", "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=80&h=120&q=80" },
+      { "id": "17", "name": "Casillero Chardonnay", "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=80&h=120&q=80" },
+      { "id": "21", "name": "La Marca Prosecco", "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=80&h=120&q=80" }
+    ]
+  },
+  {
+    "id": "b3",
+    "slug": "weekend-elite-pack",
+    "name": "Weekend Elite Pack",
+    "description": "Barceló Imperial + Grey Goose + Campari + mixers. El fin de semana que mereces.",
+    "image_url": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=400&h=300&q=80",
+    "original_price": 5110,
+    "bundle_price": 4500,
+    "savings_pct": 12,
+    "products": [
+      { "id": "3", "name": "Barceló Imperial", "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=80&h=120&q=80" },
+      { "id": "9", "name": "Grey Goose", "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=80&h=120&q=80" },
+      { "id": "35", "name": "Campari", "image_url": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=80&h=120&q=80" }
+    ]
+  }
+]

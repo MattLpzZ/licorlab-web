@@ -1,0 +1,362 @@
+[
+  {
+    "id": "1", "slug": "brugal-anejo", "name": "Brugal Añejo", "brand": "Brugal",
+    "category": "rones", "price": 890, "volume_ml": 750, "alcohol_pct": 38,
+    "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "Ron dominicano de barrica con notas de vainilla, caramelo y roble. El preferido de la isla.",
+    "short_description": "Ron dominicano de barrica, notas de vainilla y caramelo.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["dominicano", "añejo"], "in_stock": true
+  },
+  {
+    "id": "2", "slug": "brugal-1888", "name": "Brugal 1888", "brand": "Brugal",
+    "category": "rones", "price": 2100, "compare_at_price": 2350, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "Ron premium dominicano añejado en doble barrica de roble. Perfecto para sipper o cóctel sofisticado.",
+    "short_description": "Añejado en doble barrica de roble. Experiencia premium.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "dominicano", "doble-barrica"], "in_stock": true
+  },
+  {
+    "id": "3", "slug": "barcelo-imperial", "name": "Barceló Imperial", "brand": "Barceló",
+    "category": "rones", "price": 1650, "volume_ml": 750, "alcohol_pct": 38,
+    "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "El emblema de la destilería Barceló. Añejado hasta 10 años con notas de frutos secos y especias.",
+    "short_description": "Añejado hasta 10 años. Notas de frutos secos y especias.",
+    "is_featured": true, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "dominicano", "featured"], "in_stock": true
+  },
+  {
+    "id": "4", "slug": "barcelo-gran-anejo", "name": "Barceló Gran Añejo", "brand": "Barceló",
+    "category": "rones", "price": 3200, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "La cima de la colección Barceló. Añejado en barricas seleccionadas de bourbon americano.",
+    "short_description": "Colección premium. Barricas seleccionadas de bourbon.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "dominicano", "lux"], "in_stock": true
+  },
+  {
+    "id": "5", "slug": "bermudez-anejo", "name": "Ron Bermúdez Añejo", "brand": "Bermúdez",
+    "category": "rones", "price": 780, "volume_ml": 750, "alcohol_pct": 38,
+    "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Tradicional ron dominicano con más de 100 años de historia. Suave y versátil.",
+    "short_description": "100 años de tradición dominicana. Suave y versátil.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["dominicano", "tradición"], "in_stock": true
+  },
+  {
+    "id": "6", "slug": "bermudez-or", "name": "Ron Bermúdez Or", "brand": "Bermúdez",
+    "category": "rones", "price": 1100, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Expresión premium de Bermúdez. Añejado con paciencia para un perfil suave y complejo.",
+    "short_description": "Expresión premium. Perfil suave y complejo.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["dominicano", "premium"], "in_stock": true
+  },
+  {
+    "id": "7", "slug": "ron-macorix", "name": "Ron Macorix", "brand": "Macorix",
+    "category": "rones", "price": 450, "volume_ml": 750, "alcohol_pct": 38,
+    "image_url": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=400&h=603&q=80",
+    "description": "El ron del pueblo. Económico, versátil y perfecto para cócteles del día a día.",
+    "short_description": "Versátil y perfecto para cócteles.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["dominicano", "económico"], "in_stock": true
+  },
+  {
+    "id": "8", "slug": "appleton-12yr", "name": "Appleton Estate 12 Años", "brand": "Appleton",
+    "category": "rones", "price": 2400, "volume_ml": 750, "alcohol_pct": 43,
+    "image_url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=400&h=603&q=80",
+    "description": "Ron jamaicano añejado 12 años. Notas de naranja, caña y especias tropicales.",
+    "short_description": "Jamaica. 12 años. Notas de naranja y especias tropicales.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["importado", "premium", "jamaica"], "in_stock": true
+  },
+  {
+    "id": "9", "slug": "grey-goose", "name": "Grey Goose", "brand": "Grey Goose",
+    "category": "vodka", "price": 2800, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "El vodka francés de referencia. Destilado de trigo Picardie, filtrado en piedra caliza.",
+    "short_description": "Trigo Picardie, filtrado en piedra caliza. Francia.",
+    "is_featured": true, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "importado", "francia", "featured"], "in_stock": true
+  },
+  {
+    "id": "10", "slug": "absolut-original", "name": "Absolut Original", "brand": "Absolut",
+    "category": "vodka", "price": 1200, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "Vodka sueco icónico. Destilado en Åhus con agua de manantial local.",
+    "short_description": "Sueco icónico. Destilado en Åhus.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["importado", "suecia"], "in_stock": true
+  },
+  {
+    "id": "11", "slug": "titos-handmade", "name": "Tito's Handmade Vodka", "brand": "Tito's",
+    "category": "vodka", "price": 1450, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Artesanal de Texas. Destilado de maíz, sin gluten certificado.",
+    "short_description": "Artesanal de Texas. Maíz, sin gluten.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["importado", "usa", "artesanal"], "in_stock": true
+  },
+  {
+    "id": "12", "slug": "ketel-one", "name": "Ketel One", "brand": "Ketel One",
+    "category": "vodka", "price": 1600, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=400&h=603&q=80",
+    "description": "Destilería familiar holandesa desde 1691. Limpio, suave y con final nítido.",
+    "short_description": "Familia holandesa desde 1691. Limpio y suave.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["importado", "holanda"], "in_stock": true
+  },
+  {
+    "id": "13", "slug": "belvedere", "name": "Belvedere", "brand": "Belvedere",
+    "category": "vodka", "price": 3100, "compare_at_price": 3450, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=400&h=604&q=80",
+    "description": "Vodka polaco de lujo elaborado con centeno Dankowskie Gold. Referencia mundial del segmento premium.",
+    "short_description": "Centeno Dankowskie Gold. Lujo polaco.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "importado", "polonia", "lux"], "in_stock": true
+  },
+  {
+    "id": "14", "slug": "smirnoff", "name": "Smirnoff No. 21", "brand": "Smirnoff",
+    "category": "vodka", "price": 680, "volume_ml": 750, "alcohol_pct": 37.5,
+    "image_url": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=400&h=605&q=80",
+    "description": "El vodka más vendido del mundo. Triple destilado y filtrado 10 veces.",
+    "short_description": "Triple destilado. Filtrado 10 veces.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["importado", "clásico"], "in_stock": true
+  },
+  {
+    "id": "15", "slug": "cyt-cabernet", "name": "Casillero del Diablo Cabernet", "brand": "Concha y Toro",
+    "category": "vinos", "price": 680, "volume_ml": 750, "alcohol_pct": 13,
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "Icónico tinto chileno. Aromas de frutos rojos oscuros, cedro y una pizca de especias.",
+    "short_description": "Tinto chileno. Frutos rojos oscuros y cedro.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["chile", "tinto", "cabernet"], "in_stock": true
+  },
+  {
+    "id": "16", "slug": "santa-rita-merlot", "name": "Santa Rita Reserva Merlot", "brand": "Santa Rita",
+    "category": "vinos", "price": 750, "volume_ml": 750, "alcohol_pct": 13.5,
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "Merlot suave y accesible del Valle Central de Chile. Notas de ciruela y chocolate.",
+    "short_description": "Valle Central de Chile. Ciruela y chocolate.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["chile", "tinto", "merlot"], "in_stock": true
+  },
+  {
+    "id": "17", "slug": "casillero-chardonnay", "name": "Casillero del Diablo Chardonnay", "brand": "Concha y Toro",
+    "category": "vinos", "price": 720, "volume_ml": 750, "alcohol_pct": 13,
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Blanco fresco con notas de manzana verde, pera y un toque de mantequilla.",
+    "short_description": "Blanco fresco. Manzana verde y pera.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["chile", "blanco", "chardonnay"], "in_stock": true
+  },
+  {
+    "id": "18", "slug": "masi-campofiorin", "name": "Masi Campofiorin", "brand": "Masi",
+    "category": "vinos", "price": 1800, "volume_ml": 750, "alcohol_pct": 13.5,
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=603&q=80",
+    "description": "Clásico de Valpolicella, Italia. Elaborado con el método de la ripassa, intenso y estructurado.",
+    "short_description": "Valpolicella, Italia. Intenso y estructurado.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["italia", "tinto", "premium"], "in_stock": true
+  },
+  {
+    "id": "19", "slug": "torres-sangre-toro", "name": "Torres Sangre de Toro", "brand": "Torres",
+    "category": "vinos", "price": 890, "volume_ml": 750, "alcohol_pct": 13.5,
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=604&q=80",
+    "description": "Tinto español con carácter y personalidad. Garnacha y Cariñena de Cataluña.",
+    "short_description": "Tinto español. Garnacha y Cariñena.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["españa", "tinto"], "in_stock": true
+  },
+  {
+    "id": "20", "slug": "trivento-malbec", "name": "Trivento Reserve Malbec", "brand": "Trivento",
+    "category": "vinos", "price": 950, "volume_ml": 750, "alcohol_pct": 13.5,
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=605&q=80",
+    "description": "Malbec mendocino de gran relación calidad-precio. Frutas rojas maduras y taninos suaves.",
+    "short_description": "Mendoza, Argentina. Frutas rojas maduras.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["argentina", "tinto", "malbec"], "in_stock": true
+  },
+  {
+    "id": "21", "slug": "la-marca-prosecco", "name": "La Marca Prosecco", "brand": "La Marca",
+    "category": "vinos", "price": 1400, "volume_ml": 750, "alcohol_pct": 11,
+    "image_url": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=606&q=80",
+    "description": "Prosecco italiano DOC. Burbujas finas, notas de melocotón y crema. Perfecto para celebrar.",
+    "short_description": "Prosecco DOC. Melocotón y crema. Para celebrar.",
+    "is_featured": true, "is_premium": false, "is_bundle": false,
+    "tags": ["italia", "espumante", "prosecco", "featured"], "in_stock": true
+  },
+  {
+    "id": "22", "slug": "patron-silver", "name": "Patrón Silver", "brand": "Patrón",
+    "category": "tequila", "price": 3200, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1547595628-c61a32f82ef4?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "El tequila que redefinió el segmento premium. 100% agave azul Weber de las Highlands de Jalisco.",
+    "short_description": "100% agave azul. Highlands de Jalisco.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "mexico", "blanco", "lux"], "in_stock": true
+  },
+  {
+    "id": "23", "slug": "don-julio-reposado", "name": "Don Julio Reposado", "brand": "Don Julio",
+    "category": "tequila", "price": 2900, "volume_ml": 750, "alcohol_pct": 38,
+    "image_url": "https://images.unsplash.com/photo-1547595628-c61a32f82ef4?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "Añejado 8 meses en barricas de roble americano. Equilibrio perfecto entre agave y madera.",
+    "short_description": "8 meses en roble americano. Agave y madera en equilibrio.",
+    "is_featured": true, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "mexico", "reposado", "featured"], "in_stock": true
+  },
+  {
+    "id": "24", "slug": "cuervo-tradicional", "name": "José Cuervo Tradicional", "brand": "Cuervo",
+    "category": "tequila", "price": 1100, "volume_ml": 750, "alcohol_pct": 38,
+    "image_url": "https://images.unsplash.com/photo-1547595628-c61a32f82ef4?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Tequila reposado clásico. 100% agave, añejado 2 meses en barricas de roble.",
+    "short_description": "Clásico reposado. 100% agave, 2 meses en roble.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["mexico", "reposado", "clásico"], "in_stock": true
+  },
+  {
+    "id": "25", "slug": "cazadores-reposado", "name": "Cazadores Reposado", "brand": "Cazadores",
+    "category": "tequila", "price": 1350, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1547595628-c61a32f82ef4?auto=format&fit=crop&w=400&h=603&q=80",
+    "description": "Añejado 12 meses en barricas de roble blanco americano. Notas herbales y de agave fresco.",
+    "short_description": "12 meses en roble blanco. Herbales y agave fresco.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["mexico", "reposado"], "in_stock": true
+  },
+  {
+    "id": "26", "slug": "1800-silver", "name": "1800 Silver", "brand": "1800",
+    "category": "tequila", "price": 1600, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1547595628-c61a32f82ef4?auto=format&fit=crop&w=400&h=604&q=80",
+    "description": "Tequila blanco triple destilado, reposado brevemente en barricas de roble francés.",
+    "short_description": "Triple destilado, reposado en roble francés.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["mexico", "blanco"], "in_stock": true
+  },
+  {
+    "id": "27", "slug": "presidente-brandy", "name": "Presidente Brandy", "brand": "Presidente",
+    "category": "brandies", "price": 980, "volume_ml": 750, "alcohol_pct": 38,
+    "image_url": "https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "Brandy dominicano clásico. Suave, con notas de caramelo y frutas secas.",
+    "short_description": "Dominicano clásico. Caramelo y frutas secas.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["dominicano", "brandy"], "in_stock": true
+  },
+  {
+    "id": "28", "slug": "hennessy-vs", "name": "Hennessy VS", "brand": "Hennessy",
+    "category": "brandies", "price": 3500, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "El cognac más vendido del mundo. Blend de más de 40 eaux-de-vie de la región de Cognac.",
+    "short_description": "Más de 40 eaux-de-vie. Cognac, Francia.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "cognac", "francia", "lux"], "in_stock": true
+  },
+  {
+    "id": "29", "slug": "martell-vs", "name": "Martell VS", "brand": "Martell",
+    "category": "brandies", "price": 3100, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "La casa cognacaise más antigua de Francia. Aromas florales y de fruta fresca.",
+    "short_description": "Casa cognacaise más antigua de Francia.",
+    "is_featured": false, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "cognac", "francia"], "in_stock": true
+  },
+  {
+    "id": "30", "slug": "torres-5", "name": "Torres 5 Brandy", "brand": "Torres",
+    "category": "brandies", "price": 1200, "volume_ml": 750, "alcohol_pct": 36,
+    "image_url": "https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?auto=format&fit=crop&w=400&h=603&q=80",
+    "description": "Brandy español de uva Airén. Añejado en barricas de roble, suave y afrutado.",
+    "short_description": "Español. Suave, afrutado y accesible.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["españa", "brandy"], "in_stock": true
+  },
+  {
+    "id": "31", "slug": "tanqueray", "name": "Tanqueray London Dry Gin", "brand": "Tanqueray",
+    "category": "gin", "price": 1800, "volume_ml": 750, "alcohol_pct": 43.1,
+    "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "El estándar del gin londinense. Cuatro botánicos clave: enebro, cilantro, angélica y regaliz.",
+    "short_description": "Estándar londinense. Cuatro botánicos clásicos.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["uk", "london-dry", "clásico"], "in_stock": true
+  },
+  {
+    "id": "32", "slug": "hendricks", "name": "Hendrick's Gin", "brand": "Hendrick's",
+    "category": "gin", "price": 3400, "volume_ml": 750, "alcohol_pct": 41.4,
+    "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "El gin escocés que cambió las reglas. Destilado con pepino y pétalos de rosa búlgara.",
+    "short_description": "Escocés. Pepino y pétalos de rosa búlgara.",
+    "is_featured": true, "is_premium": true, "is_bundle": false,
+    "tags": ["premium", "escocia", "featured", "pepino"], "in_stock": true
+  },
+  {
+    "id": "33", "slug": "bombay-sapphire", "name": "Bombay Sapphire", "brand": "Bombay",
+    "category": "gin", "price": 2100, "volume_ml": 750, "alcohol_pct": 47,
+    "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Destilado con 10 botánicos exóticos mediante infusión en vapor. Delicado y aromático.",
+    "short_description": "10 botánicos exóticos. Delicado y aromático.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["uk", "botánicos"], "in_stock": true
+  },
+  {
+    "id": "34", "slug": "beefeater", "name": "Beefeater London Dry", "brand": "Beefeater",
+    "category": "gin", "price": 1400, "volume_ml": 750, "alcohol_pct": 40,
+    "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=603&q=80",
+    "description": "Producido en el corazón de Londres desde 1820. Fresco, cítrico y con fuerte presencia de enebro.",
+    "short_description": "Londres desde 1820. Cítrico y enebro.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["uk", "london-dry", "clásico"], "in_stock": true
+  },
+  {
+    "id": "35", "slug": "campari", "name": "Campari", "brand": "Campari",
+    "category": "horario", "price": 1350, "volume_ml": 750, "alcohol_pct": 25,
+    "image_url": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "El bitter italiano por excelencia. Perfecto para un Negroni o Spritz de temporada.",
+    "short_description": "Bitter italiano. Base del Negroni y Spritz.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["italia", "aperitivo", "bitter"], "in_stock": true
+  },
+  {
+    "id": "36", "slug": "aperol", "name": "Aperol", "brand": "Aperol",
+    "category": "horario", "price": 1200, "volume_ml": 750, "alcohol_pct": 11,
+    "image_url": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "El aperitivo italiano más famoso del verano. Base del Aperol Spritz, dulce y cítrico.",
+    "short_description": "Italia. Base del Aperol Spritz.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["italia", "aperitivo"], "in_stock": true
+  },
+  {
+    "id": "37", "slug": "baileys", "name": "Baileys Irish Cream", "brand": "Baileys",
+    "category": "horario", "price": 1450, "volume_ml": 750, "alcohol_pct": 17,
+    "image_url": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Licor de crema irlandés original. Perfecto solo sobre hielo o en cócteles cremosos.",
+    "short_description": "Crema irlandesa original. Solo sobre hielo.",
+    "is_featured": false, "is_premium": false, "is_bundle": false,
+    "tags": ["irlanda", "crema", "licor"], "in_stock": true
+  },
+  {
+    "id": "38", "slug": "pack-fiesta-ron", "name": "Pack Fiesta Ron", "brand": "LicorLab",
+    "category": "bundles", "price": 2200, "compare_at_price": 2450, "volume_ml": null, "alcohol_pct": null,
+    "image_url": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=400&h=600&q=80",
+    "description": "2 Brugal Añejo + 2 Coca-Cola + hielo incluido. Todo para la fiesta perfecta.",
+    "short_description": "2 Brugal Añejo + mixers. Ahorra RD$250.",
+    "is_featured": false, "is_premium": false, "is_bundle": true,
+    "tags": ["bundle", "ron", "fiesta"], "in_stock": true
+  },
+  {
+    "id": "39", "slug": "cata-vinos-premium", "name": "Cata de Vinos Premium", "brand": "LicorLab",
+    "category": "bundles", "price": 1900, "compare_at_price": 2235, "volume_ml": null, "alcohol_pct": null,
+    "image_url": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=400&h=601&q=80",
+    "description": "3 vinos seleccionados por nuestros sommeliers: 1 tinto, 1 blanco y 1 espumante. Experiencia completa.",
+    "short_description": "3 vinos curados. Tinto, blanco y espumante.",
+    "is_featured": false, "is_premium": true, "is_bundle": true,
+    "tags": ["bundle", "vinos", "cata"], "in_stock": true
+  },
+  {
+    "id": "40", "slug": "weekend-elite-pack", "name": "Weekend Elite Pack", "brand": "LicorLab",
+    "category": "bundles", "price": 4500, "compare_at_price": 5110, "volume_ml": null, "alcohol_pct": null,
+    "image_url": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=400&h=602&q=80",
+    "description": "Barceló Imperial + Grey Goose + Campari + mixers seleccionados. El fin de semana que mereces.",
+    "short_description": "Barceló + Grey Goose + Campari. Ahorra RD$610.",
+    "is_featured": true, "is_premium": true, "is_bundle": true,
+    "tags": ["bundle", "premium", "featured", "lux"], "in_stock": true
+  }
+]
