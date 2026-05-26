@@ -19,7 +19,7 @@ import { getBundles } from '@/lib/api/bundles'
 export const metadata: Metadata = {
   title: 'Inicio',
   description:
-    'Compra rones, vinos, tequilas y licores premium con entrega en 30 minutos en Santo Domingo. Descuentos cada semana, bundles y selección importada.',
+    'Compra rones, vinos, tequilas y licores premium con entrega en 30 minutos en Puerto Plata. Descuentos cada semana, bundles y selección importada.',
 }
 
 export default async function HomePage() {
@@ -40,7 +40,7 @@ export default async function HomePage() {
       <CartDrawer />
 
       {/* Hero — dark, alto impacto */}
-      <HeroBanner products={featured} />
+      <HeroBanner />
 
       {/* Promo strip 1 */}
       <PromoBanner
@@ -63,7 +63,7 @@ export default async function HomePage() {
 
       {/* Promo strip 2 */}
       <PromoBanner
-        eyebrow="Santo Domingo y zonas cercanas"
+        eyebrow="Puerto Plata y zonas cercanas"
         headline="ENVÍO EN 30 MINUTOS"
         sub="Pedidos hasta las 10PM. Sin mínimo de compra para zonas selectas."
         href="/catalog"

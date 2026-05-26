@@ -1,92 +1,144 @@
+'use client'
+
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Product } from '@/types'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-interface HeroBannerProps {
-  products: Product[]
-}
+const SLIDES = [
+  {
+    id: 0,
+    eyebrow: 'Puerto Plata · Entrega en 30 min',
+    lines: ['TODO LO QUE', 'NECESITAS PARA'],
+    accent: 'CELEBRAR.',
+    sub: 'Rones, vinos, tequilas, vodkas y más. La mayor selección de licores importados y nacionales de RD.',
+    cta: { label: 'Ver catálogo', href: '/catalog' },
+    cta2: { label: 'Bundles · Ahorra 10%', href: '/catalog?category=bundles' },
+    image: 'https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=1600&h=640&q=80',
+  },
+  {
+    id: 1,
+    eyebrow: 'Rones Premium · Puerto Plata',
+    lines: ['BARCELÓ', 'IMPERIAL'],
+    accent: 'MASTERBLEND.',
+    sub: 'El ron dominicano más premiado. Añejado hasta 30 años en barricas de roble americano.',
+    cta: { label: 'Ver Rones', href: '/catalog?category=rones' },
+    cta2: { label: 'Ver precio', href: '/products/barcelo-imperial' },
+    image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=1600&h=640&q=80',
+  },
+  {
+    id: 2,
+    eyebrow: 'Vodka Premium · Puerto Plata',
+    lines: ['GREY', 'GOOSE'],
+    accent: 'VODKA.',
+    sub: 'Destilado en Francia con trigo de Beauce y agua de Gensac-la-Pallue. El estándar de la perfección.',
+    cta: { label: 'Ver Vodkas', href: '/catalog?category=vodka' },
+    cta2: { label: 'Ver precio', href: '/products/grey-goose' },
+    image: 'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=1600&h=640&q=80',
+  },
+]
 
-export default function HeroBanner({ products }: HeroBannerProps) {
-  const showcase = products.slice(0, 3)
-  const featured = products[0]
+export default function HeroBanner() {
+  const [current, setCurrent] = useState(0)
+
+  const next = useCallback(() => setCurrent(c => (c + 1) % SLIDES.length), [])
+  const prev = useCallback(() => setCurrent(c => (c - 1 + SLIDES.length) % SLIDES.length), [])
+
+  useEffect(() => {
+    const id = setInterval(next, 5000)
+    return () => clearInterval(id)
+  }, [next])
+
+  const slide = SLIDES[current]
 
   return (
-    <section className="bg-[#0D0D0D] overflow-hidden relative h-[480px]" aria-label="Portada">
-      {featured && (
-        <div className="absolute inset-0">
+    <section className="relative h-[480px] overflow-hidden bg-[#0D0D0D]" aria-label="Portada">
+      {/* Background slides */}
+      {SLIDES.map((s, i) => (
+        <div
+          key={s.id}
+          className={`absolute inset-0 transition-opacity duration-700 ${
+            i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
           <Image
-            src={featured.image_url}
+            src={s.image}
             alt=""
             fill
-            className="object-cover opacity-[0.05] scale-110"
-            priority
+            className="object-cover opacity-35"
+            priority={i === 0}
             sizes="100vw"
             unoptimized
           />
         </div>
-      )}
+      ))}
 
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/20" />
+
+      {/* Content */}
       <div className="relative z-10 h-full flex items-center max-w-site mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full">
-
-          {/* Left */}
-          <div>
-            <p className="text-accent text-[11px] uppercase tracking-[0.35em] font-ui mb-4">
-              Santo Domingo · Entrega en 30 min
-            </p>
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-white leading-[0.9] mb-5">
-              TODO LO QUE<br />NECESITAS PARA<br />
-              <span className="text-accent">CELEBRAR.</span>
-            </h1>
-            <p className="text-white/50 font-ui text-sm leading-relaxed mb-7 max-w-sm">
-              Rones, vinos, tequilas, vodkas y más. La mayor selección de licores
-              importados y nacionales de RD.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/catalog"
-                className="inline-block bg-accent text-white font-ui font-semibold text-xs uppercase tracking-[0.2em] px-7 py-3.5 rounded-lg hover:bg-accent-light transition-colors"
-              >
-                Ver catálogo
-              </Link>
-              <Link
-                href="/catalog?category=bundles"
-                className="inline-block border border-white/20 text-white/80 font-ui text-xs uppercase tracking-[0.15em] px-7 py-3.5 rounded-lg hover:border-white/50 hover:text-white transition-colors"
-              >
-                Bundles · Ahorra 10%
-              </Link>
-            </div>
+        <div className="max-w-xl">
+          <p className="text-accent text-[11px] uppercase tracking-[0.35em] font-ui mb-4">
+            {slide.eyebrow}
+          </p>
+          <h1 className="font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl text-white leading-[0.9] mb-5">
+            {slide.lines.map((line, i) => (
+              <span key={i}>{line}<br /></span>
+            ))}
+            <span className="text-accent">{slide.accent}</span>
+          </h1>
+          <p className="text-white/55 font-ui text-sm leading-relaxed mb-7 max-w-sm">
+            {slide.sub}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href={slide.cta.href}
+              className="inline-block bg-accent text-white font-ui font-semibold text-xs uppercase tracking-[0.2em] px-7 py-3.5 rounded-lg hover:bg-accent-light transition-colors"
+            >
+              {slide.cta.label}
+            </Link>
+            <Link
+              href={slide.cta2.href}
+              className="inline-block border border-white/25 text-white/80 font-ui text-xs uppercase tracking-[0.15em] px-7 py-3.5 rounded-lg hover:border-white/60 hover:text-white transition-colors"
+            >
+              {slide.cta2.label}
+            </Link>
           </div>
-
-          {/* Right: bottles */}
-          {showcase.length > 0 && (
-            <div className="hidden md:flex items-end justify-center gap-4 h-80">
-              {showcase.map((product, i) => (
-                <Link
-                  key={product.id}
-                  href={`/products/${product.slug}`}
-                  aria-label={product.name}
-                  className={`relative flex-shrink-0 group transition-transform duration-500 hover:-translate-y-4 ${
-                    i === 1 ? 'h-full w-24 lg:w-28' : 'h-[76%] w-20 lg:w-24'
-                  }`}
-                >
-                  <Image
-                    src={product.image_url}
-                    alt={product.name}
-                    fill
-                    className="object-contain drop-shadow-[0_8px_40px_rgba(231,31,70,0.15)] group-hover:drop-shadow-[0_16px_60px_rgba(231,31,70,0.4)] transition-all duration-500"
-                    sizes="112px"
-                    unoptimized
-                    priority
-                  />
-                </Link>
-              ))}
-            </div>
-          )}
         </div>
       </div>
 
-      {/* Fade into white */}
+      {/* Arrows */}
+      <button
+        onClick={prev}
+        aria-label="Slide anterior"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/30 hover:bg-black/60 text-white/70 hover:text-white transition-all"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        onClick={next}
+        aria-label="Slide siguiente"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/30 hover:bg-black/60 text-white/70 hover:text-white transition-all"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      {/* Dot navigation */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Ir al slide ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === current ? 'bg-accent w-8' : 'bg-white/40 w-3 hover:bg-white/60'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Fade to white */}
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-primary to-transparent" />
     </section>
   )

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { cn } from '@/lib/cn'
 
 interface FilterSidebarProps {
@@ -21,12 +22,7 @@ const CATEGORIES = [
   { label: 'Bundles', value: 'bundles' },
 ]
 
-const PRICE_OPTIONS = [
-  { label: 'RD$800', value: 800 },
-  { label: 'RD$2,000', value: 2000 },
-  { label: 'RD$4,000', value: 4000 },
-  { label: 'Sin límite', value: 0 },
-]
+const MAX_PRICE = 4500
 
 export default function FilterSidebar({
   selectedCategory,
@@ -34,9 +30,19 @@ export default function FilterSidebar({
   onCategoryChange,
   onMaxPriceChange,
 }: FilterSidebarProps) {
+  const [sliderValue, setSliderValue] = useState(maxPrice || MAX_PRICE)
+
+  const displayPrice = sliderValue >= MAX_PRICE
+    ? 'Sin límite'
+    : `RD$${sliderValue.toLocaleString()}`
+
+  function commitPrice() {
+    onMaxPriceChange(sliderValue >= MAX_PRICE ? 0 : sliderValue)
+  }
+
   return (
     <aside className="w-64 flex-shrink-0 space-y-8">
-      <h2 className="font-heading text-xl text-text-1">Filtros</h2>
+      <h2 className="font-heading font-bold text-xl text-text-1">Filtros</h2>
 
       {/* Categorías */}
       <div>
@@ -62,27 +68,26 @@ export default function FilterSidebar({
         </div>
       </div>
 
-      {/* Precio máximo */}
+      {/* Precio máximo — range slider */}
       <div>
-        <p className="text-text-2 text-xs uppercase tracking-widest mb-3">Precio máximo</p>
-        <div className="flex flex-col gap-1.5">
-          {PRICE_OPTIONS.map((opt) => {
-            const isActive = (maxPrice ?? 0) === opt.value
-            return (
-              <button
-                key={opt.value}
-                onClick={() => onMaxPriceChange(opt.value)}
-                className={cn(
-                  'text-left text-sm px-3 py-2 border rounded-sm transition-colors',
-                  isActive
-                    ? 'bg-surface-2 border-accent text-text-1'
-                    : 'border-border text-text-2 hover:border-accent/50'
-                )}
-              >
-                {opt.label}
-              </button>
-            )
-          })}
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-text-2 text-xs uppercase tracking-widest">Precio máximo</p>
+          <span className="text-accent text-xs font-ui font-semibold">{displayPrice}</span>
+        </div>
+        <input
+          type="range"
+          min={0}
+          max={MAX_PRICE}
+          step={100}
+          value={sliderValue}
+          onChange={e => setSliderValue(Number(e.target.value))}
+          onMouseUp={commitPrice}
+          onTouchEnd={commitPrice}
+          className="price-slider w-full"
+        />
+        <div className="flex justify-between mt-1.5">
+          <span className="text-text-3 text-[10px] font-ui">RD$0</span>
+          <span className="text-text-3 text-[10px] font-ui">Sin límite</span>
         </div>
       </div>
     </aside>

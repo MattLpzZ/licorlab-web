@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const MESSAGES = [
-  'Envío gratis en pedidos +RD$3,000 · Entrega mismo día en Santo Domingo',
+  'Envío gratis en pedidos +RD$3,000 · Entrega mismo día en Puerto Plata',
   'Lleva 6 botellas y ahorra 10% · Ver bundles →',
   'Selección premium de rones dominicanos e importados',
 ]

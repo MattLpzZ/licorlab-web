@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --font-cormorant: 'Cormorant Garamond', serif;
   --font-inter: 'Inter', sans-serif;
 }
 
@@ -101,6 +100,37 @@ h1, h2, h3, h4, h5 {
 }
 .btn-pulse {
   animation: pulse-accent 2.5s ease-in-out infinite;
+}
+
+/* ── Price range slider ────────────────────────────────────────── */
+.price-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #E8E8E8;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e71f46;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 6px rgba(231,31,70,0.35);
+}
+.price-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e71f46;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 6px rgba(231,31,70,0.35);
 }
 
 /* ── Section divider line ──────────────────────────────────────── */

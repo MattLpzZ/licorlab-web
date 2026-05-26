@@ -38,7 +38,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/70 text-sm font-ui leading-relaxed">
-              La selección que mereces. Envío express en Santo Domingo.
+              La selección que mereces. Envío express en Puerto Plata.
             </p>
             <p className="text-white/50 text-xs font-ui uppercase tracking-wider">
               Solo para mayores de 18 años.
@@ -123,7 +123,7 @@ export default function Footer() {
             © 2025 LicorLab. Todos los derechos reservados.
           </p>
           <p className="text-white/50 text-xs font-ui">
-            Powered by LicorLab · Santo Domingo, RD
+            Powered by LicorLab · Puerto Plata, RD
           </p>
         </div>
       </div>

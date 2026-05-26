@@ -20,7 +20,7 @@ const config: Config = {
         border: '#E8E8E8',
       },
       fontFamily: {
-        heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        heading: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
         body: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
         ui: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
       },
