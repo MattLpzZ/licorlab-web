@@ -56,7 +56,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
             </span>
           )}
           {product.in_stock && hasSale && (
-            <span className="bg-accent text-primary text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm">
+            <span className="bg-accent text-text-1 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm">
               Oferta
             </span>
           )}
@@ -108,7 +108,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               ? 'bg-surface-2 text-text-3 cursor-not-allowed border border-border'
               : added
               ? 'bg-surface-2 text-accent border border-accent/40 cursor-default'
-              : 'bg-accent hover:bg-accent-light text-primary'
+              : 'bg-text-1 hover:bg-text-2 text-primary'
           )}
         >
           {!product.in_stock ? 'Agotado' : added ? '✓ Agregado' : 'Agregar'}

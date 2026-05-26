@@ -44,7 +44,7 @@ export default function TrendingCategories({ categories }: TrendingCategoriesPro
                     sizes="112px"
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
 
                 {/* Label */}

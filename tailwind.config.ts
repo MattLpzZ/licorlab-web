@@ -9,15 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0A0A0B',
-        surface: '#111113',
-        'surface-2': '#1A1A1D',
+        primary: '#FFFFFF',
+        surface: '#F5F3EF',
+        'surface-2': '#EAE7E2',
         accent: '#C9963F',
-        'accent-light': '#E4B96A',
-        'text-1': '#F5F0E8',
-        'text-2': '#9C9589',
-        'text-3': '#4A4540',
-        border: '#242220',
+        'accent-light': '#D4A84B',
+        'text-1': '#1A1714',
+        'text-2': '#6B6560',
+        'text-3': '#B5AFA9',
+        border: '#DDD8D2',
       },
       fontFamily: {
         heading: ['var(--font-cormorant)', 'Georgia', 'serif'],

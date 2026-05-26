@@ -106,5 +106,5 @@ h1, h2, h3, h4, h5 {
 /* ── Section divider line ──────────────────────────────────────── */
 .section-rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #242220 20%, #242220 80%, transparent);
+  background: linear-gradient(90deg, transparent, #DDD8D2 20%, #DDD8D2 80%, transparent);
 }

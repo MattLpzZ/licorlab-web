@@ -101,7 +101,7 @@ export default function Navbar() {
           >
             <ShoppingCart size={20} />
             {itemCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-accent text-primary text-[10px] font-semibold rounded-full h-4 w-4 flex items-center justify-center leading-none">
+              <span className="absolute -top-1.5 -right-1.5 bg-text-1 text-primary text-[10px] font-semibold rounded-full h-4 w-4 flex items-center justify-center leading-none">
                 {itemCount > 99 ? '99+' : itemCount}
               </span>
             )}

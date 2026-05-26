@@ -63,7 +63,7 @@ export default function BundleBanner({ bundles }: BundleBannerProps) {
 
                   <Link
                     href={`/products/${bundle.slug}`}
-                    className="inline-block text-center bg-surface border border-accent/50 text-accent hover:bg-accent hover:text-primary text-sm font-body font-medium uppercase tracking-wider px-6 py-2.5 transition-colors mt-1"
+                    className="inline-block text-center bg-text-1 text-primary hover:bg-text-2 text-sm font-body font-medium uppercase tracking-wider px-6 py-2.5 transition-colors mt-1"
                   >
                     Ver bundle
                   </Link>

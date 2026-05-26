@@ -51,7 +51,7 @@ export default function WaysToSave() {
                   />
 
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/55 to-primary/10 group-hover:from-primary/85 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/5 group-hover:from-black/75 transition-colors duration-300" />
 
                   {/* Badge */}
                   <div className="absolute top-4 left-4">
@@ -62,10 +62,10 @@ export default function WaysToSave() {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-heading text-3xl text-text-1 whitespace-pre-line leading-tight mb-1">
+                    <h3 className="font-heading text-3xl text-white whitespace-pre-line leading-tight mb-1">
                       {tile.title}
                     </h3>
-                    <p className="font-body text-text-2 text-sm mb-3">{tile.subtitle}</p>
+                    <p className="font-body text-white/70 text-sm mb-3">{tile.subtitle}</p>
                     <span className="flex items-center gap-1.5 text-accent text-xs font-body uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
                       Explorar <ArrowRight size={12} />
                     </span>
