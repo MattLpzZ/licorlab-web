@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -40,6 +40,7 @@ const SLIDES = [
 
 export default function HeroBanner() {
   const [current, setCurrent] = useState(0)
+  const parallaxRef = useRef<HTMLDivElement>(null)
 
   const next = useCallback(() => setCurrent(c => (c + 1) % SLIDES.length), [])
   const prev = useCallback(() => setCurrent(c => (c - 1 + SLIDES.length) % SLIDES.length), [])
@@ -49,29 +50,46 @@ export default function HeroBanner() {
     return () => clearInterval(id)
   }, [next])
 
+  // Direct DOM manipulation — no re-render on scroll
+  useEffect(() => {
+    function onScroll() {
+      if (parallaxRef.current) {
+        parallaxRef.current.style.transform = `translateY(${window.scrollY * 0.25}px)`
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   const slide = SLIDES[current]
 
   return (
     <section className="relative h-[480px] overflow-hidden bg-[#0D0D0D]" aria-label="Portada">
-      {/* Background slides */}
-      {SLIDES.map((s, i) => (
-        <div
-          key={s.id}
-          className={`absolute inset-0 transition-opacity duration-700 ${
-            i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-        >
-          <Image
-            src={s.image}
-            alt=""
-            fill
-            className="object-cover opacity-35"
-            priority={i === 0}
-            sizes="100vw"
-            unoptimized
-          />
-        </div>
-      ))}
+      {/* Parallax background container — taller than section for travel room */}
+      <div
+        ref={parallaxRef}
+        className="absolute left-0 right-0"
+        style={{ top: '-12%', height: '124%', willChange: 'transform' }}
+      >
+        {SLIDES.map((s, i) => (
+          <div
+            key={s.id}
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+          >
+            <Image
+              src={s.image}
+              alt=""
+              fill
+              className="object-cover opacity-35"
+              priority={i === 0}
+              sizes="100vw"
+              unoptimized
+            />
+          </div>
+        ))}
+      </div>
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/20" />
