@@ -40,7 +40,7 @@ export default function WaysToSave() {
           {TILES.map((tile, i) => (
             <AnimateIn key={tile.href} delay={i * 80}>
               <Link href={tile.href} className="block group">
-                <div className="relative h-64 md:h-72 overflow-hidden cursor-pointer">
+                <div className="relative h-[480px] overflow-hidden cursor-pointer">
                   {/* Background image */}
                   <Image
                     src={tile.image}

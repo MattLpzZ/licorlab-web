@@ -32,8 +32,8 @@ export default function ShopByPrice() {
                   transition-all duration-300
                   flex flex-col items-center justify-center
                   cursor-pointer
-                  shadow-[0_0_0_0_rgba(201,150,63,0)]
-                  group-hover:shadow-[0_0_24px_0_rgba(201,150,63,0.15)]
+                  shadow-[0_0_0_0_rgba(231,31,70,0)]
+                  group-hover:shadow-[0_0_24px_0_rgba(231,31,70,0.15)]
                 ">
                   <span className="font-heading text-xl md:text-2xl text-accent font-semibold leading-none">
                     {top}

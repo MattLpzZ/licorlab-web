@@ -4,7 +4,7 @@ import AnimateIn from '@/components/ui/AnimateIn'
 
 export default function EditorialBanner() {
   return (
-    <section className="relative h-[55vh] min-h-[320px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[480px] flex items-center justify-center overflow-hidden">
       <Image
         src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1600&h=600&q=80"
         alt="La Selección del Verano"
