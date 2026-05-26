@@ -53,3 +53,7 @@ export async function getRelatedProducts(product: Product, limit = 4): Promise<P
     .filter(p => p.category === product.category && p.id !== product.id)
     .slice(0, limit)
 }
+
+export async function getAllSlugs(): Promise<string[]> {
+  return all.map(p => p.slug)
+}

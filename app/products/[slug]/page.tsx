@@ -1,5 +1,3 @@
-export const runtime = 'edge'
-
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Navbar from '@/components/layout/Navbar'
@@ -7,7 +5,12 @@ import Footer from '@/components/layout/Footer'
 import CartDrawer from '@/components/layout/CartDrawer'
 import ProductDetail from '@/components/product/ProductDetail'
 import RelatedProducts from '@/components/product/RelatedProducts'
-import { getProductBySlug, getRelatedProducts } from '@/lib/api/products'
+import { getProductBySlug, getRelatedProducts, getAllSlugs } from '@/lib/api/products'
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs()
+  return slugs.map((slug) => ({ slug }))
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>
