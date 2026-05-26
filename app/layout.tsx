@@ -56,6 +56,10 @@ export const metadata: Metadata = {
     title: 'LicorLab — Licores Premium · Envío 30 min · Puerto Plata',
     description: 'Rones, vinos, tequilas y más. Entrega express en Puerto Plata.',
   },
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: '/icon.svg',
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://licorlab.com' },
 }
