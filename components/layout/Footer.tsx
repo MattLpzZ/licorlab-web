@@ -23,14 +23,14 @@ const INFO_LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-[#e71f46]">
-      <div className="px-6 md:px-10 py-16">
+      <div className="max-w-site mx-auto px-6 md:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
 
           {/* Brand */}
           <div className="md:col-span-1 flex flex-col gap-5">
             <Link href="/">
               <Image
-                src="/LG-BLACK.svg"
+                src="/LG-WHITE.svg"
                 alt="LicorLab"
                 width={120}
                 height={32}
