@@ -53,7 +53,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="shrink-0">
             <Image
-              src="/LG-WHITE.svg"
+              src="/LG-BLACK.svg"
               alt="LicorLab"
               width={88}
               height={22}
