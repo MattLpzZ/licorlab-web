@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import AnimateIn from '@/components/ui/AnimateIn'
 import type { Category } from '@/types'
 
 interface TrendingCategoriesProps {
@@ -10,40 +11,48 @@ export default function TrendingCategories({ categories }: TrendingCategoriesPro
   if (!categories.length) return null
 
   return (
-    <section className="py-20 px-4 bg-surface-2">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-10">
-          <h2 className="font-heading text-4xl text-text-1 mb-2">Categorías Destacadas</h2>
-          <p className="text-text-2 text-sm font-body">Explora nuestra selección por tipo de licor.</p>
-        </div>
+    <section className="py-16 bg-primary">
+      <div className="max-w-7xl mx-auto px-4">
+        <AnimateIn className="flex items-end justify-between mb-10">
+          <div>
+            <p className="text-accent text-xs uppercase tracking-[0.2em] font-body mb-2">Explorar</p>
+            <h2 className="font-heading text-4xl md:text-5xl text-text-1">Categorías</h2>
+          </div>
+          <Link
+            href="/catalog"
+            className="text-text-2 hover:text-accent text-sm font-body transition-colors hidden md:block"
+          >
+            Ver todas →
+          </Link>
+        </AnimateIn>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {categories.map((category) => (
-            <Link key={category.slug} href={`/catalog?category=${category.slug}`}>
-              <div className="relative h-48 overflow-hidden border border-border hover:border-accent transition-colors group cursor-pointer">
-                <Image
-                  src={category.image_url}
-                  alt={category.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/50 transition-colors" />
-
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-4 text-center">
-                  <span className="font-heading text-xl text-text-1">{category.name}</span>
-                  {category.product_count !== undefined && (
-                    <span className="text-text-2 text-sm font-body">
-                      {category.product_count} productos
-                    </span>
-                  )}
+        {/* Circle row — scrollable */}
+        <div className="flex gap-6 md:gap-8 overflow-x-auto pb-4 scrollbar-hide">
+          {categories.map((cat, i) => (
+            <AnimateIn key={cat.slug} delay={i * 60} direction="up">
+              <Link
+                href={`/catalog?category=${cat.slug}`}
+                className="flex flex-col items-center gap-3 flex-shrink-0 group"
+              >
+                {/* Circle */}
+                <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-border group-hover:border-accent transition-all duration-300 group-hover:scale-105">
+                  <Image
+                    src={cat.image_url}
+                    alt={cat.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="112px"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors duration-300" />
                 </div>
-              </div>
-            </Link>
+
+                {/* Label */}
+                <span className="font-body text-xs md:text-sm text-text-2 group-hover:text-accent transition-colors whitespace-nowrap">
+                  {cat.name}
+                </span>
+              </Link>
+            </AnimateIn>
           ))}
         </div>
       </div>

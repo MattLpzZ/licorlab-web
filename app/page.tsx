@@ -9,6 +9,7 @@ import TrendingCategories from '@/components/home/TrendingCategories'
 import ShopByPrice from '@/components/home/ShopByPrice'
 import EditorialBanner from '@/components/home/EditorialBanner'
 import ProductCarousel from '@/components/home/ProductCarousel'
+import FeaturedDealsSpotlight from '@/components/home/FeaturedDealsSpotlight'
 import { getFeaturedProducts, getProductsByCategory, getProductsByPriceRange } from '@/lib/api/products'
 import { getCategories } from '@/lib/api/categories'
 import { getBundles } from '@/lib/api/bundles'
@@ -31,6 +32,7 @@ export default async function HomePage() {
       <CartDrawer />
 
       <HeroCarousel products={featured} />
+      <FeaturedDealsSpotlight products={featured} />
       <WaysToSave />
       <BundleBanner bundles={bundles} />
       <TrendingCategories categories={categories} />

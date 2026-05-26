@@ -5,7 +5,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import type { Product } from '@/types'
 
 interface HeroCarouselProps {
@@ -13,53 +13,87 @@ interface HeroCarouselProps {
 }
 
 export default function HeroCarousel({ products }: HeroCarouselProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })])
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5500 })])
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    emblaApi.on('select', onSelect)
+    return () => { emblaApi.off('select', onSelect) }
+  }, [emblaApi, onSelect])
+
   if (!products.length) return null
 
   return (
-    <section className="relative overflow-hidden" aria-label="Productos destacados">
+    <section className="relative overflow-hidden bg-primary" aria-label="Productos destacados">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {products.map((product) => (
             <div
               key={product.id}
-              className="relative h-[60vh] min-h-[420px] flex items-center flex-shrink-0 w-full"
+              className="relative min-h-[520px] md:h-[72vh] flex-shrink-0 w-full"
             >
-              {/* Background image */}
+              {/* Subtle full-bleed bg */}
               <Image
                 src={product.image_url}
-                alt={product.name}
+                alt=""
                 fill
-                className="object-cover opacity-30"
+                className="object-cover opacity-[0.08]"
                 priority
                 sizes="100vw"
+                unoptimized
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/20" />
 
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent" />
+              {/* Magazine split */}
+              <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 h-full flex items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-center py-20 md:py-0">
+                  {/* Left: text */}
+                  <div>
+                    <span className="inline-block text-accent text-[10px] uppercase tracking-[0.3em] font-body border border-accent/30 px-3 py-1 mb-6">
+                      {product.category}
+                    </span>
+                    <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl text-text-1 leading-[1.05] mb-5">
+                      {product.name}
+                    </h2>
+                    {product.description && (
+                      <p className="font-body text-text-2 text-sm leading-relaxed mb-6 max-w-sm line-clamp-2">
+                        {product.description}
+                      </p>
+                    )}
+                    <p className="font-heading text-4xl md:text-5xl text-accent mb-8 leading-none">
+                      RD${product.price.toLocaleString('es-DO')}
+                    </p>
+                    <Link
+                      href={`/products/${product.slug}`}
+                      className="inline-block bg-accent text-primary font-body text-xs font-medium uppercase tracking-[0.2em] px-10 py-4 hover:bg-accent-light transition-colors btn-pulse"
+                    >
+                      Ver producto
+                    </Link>
+                  </div>
 
-              {/* Content */}
-              <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-                <div className="max-w-xl">
-                  <span className="text-accent text-sm uppercase tracking-widest font-body">
-                    {product.category}
-                  </span>
-                  <h2 className="font-heading text-5xl md:text-7xl text-text-1 mt-2 mb-4 leading-tight">
-                    {product.name}
-                  </h2>
-                  <p className="font-heading text-3xl text-accent mb-6">
-                    RD${product.price.toLocaleString('es-DO')}
-                  </p>
-                  <Link
-                    href={`/products/${product.slug}`}
-                    className="inline-block bg-accent text-primary font-body text-sm font-medium uppercase tracking-wider px-8 py-3 hover:bg-accent-light transition-colors"
-                  >
-                    Ver producto
-                  </Link>
+                  {/* Right: product image — prominent, magazine-style */}
+                  <div className="hidden md:flex items-center justify-end pr-8">
+                    <div className="relative w-72 h-80 lg:w-88 lg:h-96">
+                      <Image
+                        src={product.image_url}
+                        alt={product.name}
+                        fill
+                        className="object-contain drop-shadow-[0_20px_80px_rgba(201,150,63,0.2)]"
+                        sizes="360px"
+                        unoptimized
+                        priority
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -67,7 +101,7 @@ export default function HeroCarousel({ products }: HeroCarouselProps) {
         </div>
       </div>
 
-      {/* Prev / Next buttons */}
+      {/* Prev / Next */}
       <button
         onClick={scrollPrev}
         aria-label="Slide anterior"
@@ -83,14 +117,16 @@ export default function HeroCarousel({ products }: HeroCarouselProps) {
         <ChevronRight size={20} />
       </button>
 
-      {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      {/* Active-track dots */}
+      <div className="absolute bottom-6 left-12 z-20 flex items-center gap-2">
         {products.map((_, i) => (
           <button
             key={i}
             onClick={() => emblaApi?.scrollTo(i)}
             aria-label={`Ir al slide ${i + 1}`}
-            className="h-1.5 w-6 bg-text-3 hover:bg-accent transition-colors rounded-none"
+            className={`h-px transition-all duration-300 ${
+              i === selectedIndex ? 'w-10 bg-accent' : 'w-4 bg-text-3 hover:bg-text-2'
+            }`}
           />
         ))}
       </div>

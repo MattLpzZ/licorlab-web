@@ -54,3 +54,57 @@ h1, h2, h3, h4, h5 {
   flex: 0 0 auto;
   min-width: 0;
 }
+
+/* ── Scroll animations ─────────────────────────────────────────── */
+.animate-hidden {
+  opacity: 0;
+}
+.animate-dir-up    { transform: translateY(28px); }
+.animate-dir-left  { transform: translateX(-28px); }
+.animate-dir-right { transform: translateX(28px); }
+.animate-dir-none  { transform: none; }
+
+.animate-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Hide horizontal scrollbar but keep scroll ─────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Shimmer effect on accent elements ─────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.accent-shimmer {
+  background: linear-gradient(90deg, #C9963F 0%, #E4B96A 50%, #C9963F 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Subtle pulse on CTA buttons ───────────────────────────────── */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,150,63,0); }
+  50%       { box-shadow: 0 0 0 8px rgba(201,150,63,0.12); }
+}
+.btn-pulse {
+  animation: pulse-gold 2.5s ease-in-out infinite;
+}
+
+/* ── Section divider line ──────────────────────────────────────── */
+.section-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #242220 20%, #242220 80%, transparent);
+}

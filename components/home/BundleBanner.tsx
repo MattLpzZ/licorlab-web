@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import AnimateIn from '@/components/ui/AnimateIn'
 import type { Bundle } from '@/types'
 
 interface BundleBannerProps {
@@ -13,20 +14,21 @@ export default function BundleBanner({ bundles }: BundleBannerProps) {
     <section className="bg-surface py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-10">
+        <AnimateIn className="mb-10">
+          <p className="text-accent text-xs uppercase tracking-[0.2em] font-body mb-2">Ahorra más</p>
           <h2 className="font-heading text-4xl text-text-1 mb-2">Arma tu experiencia</h2>
           <p className="text-text-2 text-sm font-body">
             Lleva 6 botellas y ahorra 10% automáticamente. Sin código, sin complicaciones.
           </p>
-        </div>
+        </AnimateIn>
 
         {/* Bundle cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {bundles.map((bundle) => {
+          {bundles.map((bundle, i) => {
             const savings = Math.round(bundle.savings_pct)
             return (
+              <AnimateIn key={bundle.id} delay={i * 80} direction="up">
               <div
-                key={bundle.id}
                 className="bg-surface-2 border border-border hover:border-accent/50 transition-colors flex flex-col"
               >
                 {/* Image */}
@@ -67,6 +69,7 @@ export default function BundleBanner({ bundles }: BundleBannerProps) {
                   </Link>
                 </div>
               </div>
+            </AnimateIn>
             )
           })}
         </div>
