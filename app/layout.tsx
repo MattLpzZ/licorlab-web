@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Poppins, Montserrat } from 'next/font/google'
+import WhatsAppButton from '@/components/ui/WhatsAppButton'
+import MobileNav from '@/components/layout/MobileNav'
 import './globals.css'
 
 const poppins = Poppins({
@@ -53,7 +55,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${poppins.variable} ${montserrat.variable}`}>
-      <body>{children}</body>
+      {/* pb-16 leaves room for the fixed mobile bottom nav */}
+      <body className="pb-16 md:pb-0">
+        {children}
+        <WhatsAppButton />
+        <MobileNav />
+      </body>
     </html>
   )
 }
