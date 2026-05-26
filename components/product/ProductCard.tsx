@@ -24,58 +24,54 @@ export default function ProductCard({ product, className }: ProductCardProps) {
   }
 
   const hasSale = !!product.compare_at_price && product.compare_at_price > product.price
+  const discount = hasSale
+    ? Math.round((1 - product.price / product.compare_at_price!) * 100)
+    : 0
 
   return (
-    <div
-      className={cn(
-        'bg-surface border border-border hover:border-accent/50 transition-colors flex flex-col rounded-sm overflow-hidden',
-        className
-      )}
-    >
+    <article className={cn('bg-white group flex flex-col border border-border hover:border-text-3 transition-colors', className)}>
       {/* Image */}
-      <Link href={`/products/${product.slug}`} className="relative block bg-surface-2 shrink-0">
-        <Image
-          src={product.image_url}
-          alt={product.name}
-          width={300}
-          height={420}
-          className="w-full object-contain p-4"
-          style={{ aspectRatio: '300/420' }}
-        />
+      <Link href={`/products/${product.slug}`} className="relative block bg-surface-2 overflow-hidden shrink-0">
+        <div className="relative h-52 md:h-60 flex items-center justify-center p-4">
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            width={200}
+            height={240}
+            className="max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            unoptimized
+          />
+        </div>
 
         {/* Badges */}
         <div className="absolute top-2 left-2 flex flex-col gap-1">
           {!product.in_stock && (
-            <span className="bg-red-800/90 text-red-100 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm">
+            <span className="bg-text-2 text-white text-[10px] font-bold uppercase px-2 py-0.5">
               Agotado
             </span>
           )}
-          {product.in_stock && product.is_premium && (
-            <span className="bg-surface/80 border border-accent-light/40 text-accent-light text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm">
-              Premium
+          {product.in_stock && hasSale && (
+            <span className="bg-red-600 text-white text-[10px] font-bold uppercase px-2 py-0.5">
+              -{discount}%
             </span>
           )}
-          {product.in_stock && hasSale && (
-            <span className="bg-accent text-text-1 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm">
-              Oferta
+          {product.in_stock && product.is_premium && !hasSale && (
+            <span className="bg-text-1 text-white text-[10px] font-bold uppercase px-2 py-0.5">
+              Premium
             </span>
           )}
         </div>
       </Link>
 
       {/* Info */}
-      <div className="flex flex-col flex-1 p-4 gap-3">
-        <div className="flex-1">
-          <p className="text-text-2 text-xs uppercase tracking-wider mb-1">{product.brand}</p>
-          <Link href={`/products/${product.slug}`}>
-            <h3 className="font-heading text-text-1 text-lg leading-snug hover:text-accent transition-colors line-clamp-2">
-              {product.name}
-            </h3>
-          </Link>
-
-          {/* Volume + ABV */}
+      <div className="flex flex-col flex-1 p-3 gap-2">
+        <Link href={`/products/${product.slug}`} className="flex-1">
+          <p className="text-text-3 text-[11px] uppercase tracking-wider mb-0.5">{product.brand}</p>
+          <h3 className="text-text-1 font-semibold text-sm leading-snug hover:text-accent transition-colors line-clamp-2">
+            {product.name}
+          </h3>
           {(product.volume_ml || product.alcohol_pct) && (
-            <p className="text-text-3 text-xs mt-1">
+            <p className="text-text-3 text-xs mt-0.5">
               {[
                 product.volume_ml ? `${product.volume_ml}ml` : null,
                 product.alcohol_pct ? `${product.alcohol_pct}%` : null,
@@ -84,11 +80,11 @@ export default function ProductCard({ product, className }: ProductCardProps) {
                 .join(' · ')}
             </p>
           )}
-        </div>
+        </Link>
 
-        {/* Price row */}
+        {/* Price */}
         <div className="flex items-baseline gap-2">
-          <span className="font-heading text-accent font-semibold text-lg">
+          <span className="text-text-1 font-bold text-xl leading-none">
             RD${product.price.toLocaleString('es-DO')}
           </span>
           {hasSale && (
@@ -103,17 +99,17 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           onClick={handleAdd}
           disabled={!product.in_stock || added}
           className={cn(
-            'w-full py-2 text-sm font-semibold transition-colors rounded-sm',
+            'w-full py-2.5 text-sm font-bold transition-colors',
             !product.in_stock
-              ? 'bg-surface-2 text-text-3 cursor-not-allowed border border-border'
+              ? 'bg-surface-2 text-text-3 cursor-not-allowed'
               : added
-              ? 'bg-surface-2 text-accent border border-accent/40 cursor-default'
-              : 'bg-text-1 hover:bg-text-2 text-primary'
+              ? 'bg-accent text-text-1'
+              : 'bg-text-1 text-white hover:bg-text-2 active:scale-[0.98]'
           )}
         >
-          {!product.in_stock ? 'Agotado' : added ? '✓ Agregado' : 'Agregar'}
+          {!product.in_stock ? 'Agotado' : added ? '✓ Agregado' : 'Agregar al carrito'}
         </button>
       </div>
-    </div>
+    </article>
   )
 }

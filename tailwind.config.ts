@@ -10,14 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#FFFFFF',
-        surface: '#F5F3EF',
-        'surface-2': '#EAE7E2',
+        surface: '#F9F9F9',
+        'surface-2': '#F0EFED',
         accent: '#C9963F',
         'accent-light': '#D4A84B',
-        'text-1': '#1A1714',
-        'text-2': '#6B6560',
-        'text-3': '#B5AFA9',
-        border: '#DDD8D2',
+        'text-1': '#111111',
+        'text-2': '#555555',
+        'text-3': '#999999',
+        border: '#E8E8E8',
       },
       fontFamily: {
         heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
