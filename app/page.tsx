@@ -2,7 +2,7 @@ import AnnouncementBar from '@/components/layout/AnnouncementBar'
 import Navbar from '@/components/layout/Navbar'
 import CartDrawer from '@/components/layout/CartDrawer'
 import Footer from '@/components/layout/Footer'
-import HeroCarousel from '@/components/home/HeroCarousel'
+import HeroBanner from '@/components/home/HeroBanner'
 import WaysToSave from '@/components/home/WaysToSave'
 import BundleBanner from '@/components/home/BundleBanner'
 import TrendingCategories from '@/components/home/TrendingCategories'
@@ -31,7 +31,7 @@ export default async function HomePage() {
       <Navbar />
       <CartDrawer />
 
-      <HeroCarousel products={featured} />
+      <HeroBanner products={featured} />
       <FeaturedDealsSpotlight products={featured} />
       <WaysToSave />
       <BundleBanner bundles={bundles} />
