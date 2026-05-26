@@ -44,11 +44,11 @@ export default function PromoBanner({
   variant = 'dark',
 }: PromoBannerProps) {
   return (
-    <section className={`${bg[variant]} py-9 md:py-12`}>
-      <div className="max-w-site mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+    <section className="py-4 px-4">
+      <div className={`${bg[variant]} max-w-site mx-auto px-8 md:px-12 py-9 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6 rounded-xl`}>
         <div>
           {eyebrow && (
-            <p className={`text-[11px] font-body uppercase tracking-[0.25em] mb-2 ${eyebrowColor[variant]}`}>
+            <p className={`text-[11px] font-ui uppercase tracking-[0.25em] mb-2 ${eyebrowColor[variant]}`}>
               {eyebrow}
             </p>
           )}
@@ -56,12 +56,12 @@ export default function PromoBanner({
             {headline}
           </h2>
           {sub && (
-            <p className={`font-body text-sm mt-2 ${subColor[variant]}`}>{sub}</p>
+            <p className={`font-ui text-sm mt-2 ${subColor[variant]}`}>{sub}</p>
           )}
         </div>
         <Link
           href={href}
-          className={`${ctaClass[variant]} font-body font-bold text-xs uppercase tracking-[0.2em] px-8 py-4 transition-colors whitespace-nowrap shrink-0`}
+          className={`${ctaClass[variant]} font-ui font-semibold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-lg transition-colors whitespace-nowrap shrink-0`}
         >
           {cta} →
         </Link>
